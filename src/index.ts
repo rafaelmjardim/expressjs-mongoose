@@ -1,6 +1,7 @@
 import "./lib/db";
 import express from "express";
 import countryRoutes from "./routes/country";
+import expenseRoutes from "./routes/expense";
 
 const app = express();
 const port = process.env.PORT || 3333;
@@ -14,6 +15,8 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/countries", countryRoutes);
+
+app.use("/expenses", expenseRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
